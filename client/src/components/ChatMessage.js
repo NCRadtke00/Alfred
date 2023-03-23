@@ -1,5 +1,5 @@
 import React from 'react';
-import 'App.css';
+import '../App.css';
 function ChatMessage({ message }) {
     return (
         <div className={`chat-message ${message.user === "gpt" && "chatgpt"}`}>
