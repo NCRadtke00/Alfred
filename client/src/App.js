@@ -1,9 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 import "./normal.css";
+import { useState } from 'react';
 
 
 function App() {
+  const [input, setInput] = useState("");
+  const [messageLog, setMessageLog] = useState([]);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setMessageLog([...messageLog, { user: "me", message: `${input}` }])
+    setInput("");
+
+  }
   return (
     <div className="App">
       <aside className='side-menu'>
@@ -46,7 +56,16 @@ function App() {
         </div>
 
         <div className='message-input-section'>
-          <textarea className='message-input-textarea' rows="1" placeholder="Enter your message here..."></textarea>
+          <form onSubmit={handleSubmit}>
+            <input
+              className='message-input-textarea'
+              rows="1"
+              placeholder="Enter your message here..."
+              value={input}
+              onChange={() => setInput(input) = e.target.value}
+            >
+            </input>
+          </form>
         </div>
       </section>
     </div>
