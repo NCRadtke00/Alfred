@@ -15,6 +15,7 @@ const port = 3080
 
 app.post("/", async (req, res) => {
     const { message } = req.body;
+    console.log(message, "message")
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: `${message}`,
@@ -26,5 +27,5 @@ app.post("/", async (req, res) => {
     })
 })
 app.listen(port, () => {
-    console.log("Example app listening at http://localhost:$(port)")
+    console.log(`Example app listening at http://localhost:${port}`)
 })
