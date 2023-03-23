@@ -29,23 +29,23 @@
   padding-right: 12px; 
 }
 
-.messages {
+
+
+.chatbox  {
   flex:1;
   background-color: #343541;
   position: relative;
+} 
+
+.chat-log{
+ padding:24px;
+ text-align: left;
 }
 
-
-.message-log{
-  text-align: left;
-}
-.message{
-  /* background-color: rgba(255, 255,255,0.1); */
-}
-.message.alfred{
+.chat-message.chatgpt{
   background-color: #444654;
 }
-.message-center{
+.chat-message-center{
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
@@ -54,38 +54,40 @@
   padding-left: 24px;
   padding-right: 24px;
 }
-.message-avatar{
+.avatar{
   background: white;
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
-.message-avatar.alfred{
+.avatar.chatgpt{
   background: #0da37f;
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
-.message-text{
+.chat-text{
   padding-left: 40px;
   padding-right: 40px;
 }
 
-.message-input-section {
+.chat-input-holder {
  padding:24px;
  position: absolute;
- left:0;right:0;bottom:0;
+ left:0;
+ right:0;
+ bottom:0;
 }
-.message-input-textarea {
+.chat-input-textarea {
   background-color: #40414f;
   color:white;
   font-size: 1.25em;
-  width: 80%;
+  width: 90%;
   padding: 12px;
   border-radius: 5px;
   border: none;
   outline: none;
-  box-shadow: 0 0 8px rgba(0,0,0,0.25);
+  box-shadow: 0 0 8px 0 rgba(0,0,0,0.25);
 }
 
 
@@ -93,6 +95,16 @@
 
 
 
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
 .App-header {
   min-height: 100vh;
   display: flex;
@@ -102,17 +114,8 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 .App-link {
   color: #61dafb;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 @keyframes App-logo-spin {
   from {
