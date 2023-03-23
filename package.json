@@ -1,5 +1,5 @@
 {
-  "name": "al",
+  "name": "al-server",
   "version": "1.0.0",
   "description": "Alfred",
   "main": "index.js",
