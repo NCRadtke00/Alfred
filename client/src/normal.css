@@ -11,7 +11,18 @@
  html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
-  }
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+    *,
+    *::before,
+    *::after {
+        -webkit-box-sizing: inherit;
+           -moz-box-sizing: inherit;
+                box-sizing: inherit;
+    }
   
   /* Sections
      ========================================================================== */
@@ -23,7 +34,7 @@
   body {
     margin: 0;
   }
-  
+
   /**
    * Render the `main` element consistently in IE.
    */

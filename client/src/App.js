@@ -7,10 +7,14 @@ function App() {
   return (
     <div className="App">
       <aside className='side-menu'>
-        <h1>Side Menu</h1>
+        <div className='side-menu-button'>
+          <span>+</span> New Chat
+        </div>
       </aside>
       <section className="message-log">
-        <h1>Message Log</h1>
+        <div className='message-input-section'>
+          <textarea className='message-input-textarea' placeholder="Enter your message here..."></textarea>
+        </div>
       </section>
     </div>
   );
