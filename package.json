@@ -1,11 +1,11 @@
 {
-  "name": "ai",
+  "name": "al",
   "version": "1.0.0",
   "description": "Alfred",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "NickRadtke",
+  "author": "Nick Radtke",
   "license": "ISC"
 }
