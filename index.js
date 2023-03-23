@@ -1,40 +1,51 @@
 const { Configuration, OpenAIApi } = require("openai");
-const express = require("express")
-const bodyParser = require("body-parser")
-const cors = require("cors")
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+require('dotenv').config();
 
 const configuration = new Configuration({
-    organization: "org-NdE4zA6yyz8rxw0zJIxdTJap",
-    apiKey: "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",
-})
+    organization: process.env.ORGANIZATION_KEY,
+    apiKey: process.env.OPENAI_API_KEY,
+});
+
 const openai = new OpenAIApi(configuration);
+const app = express();
+const port = process.env.PORT || 3080;
+const defaultModel = "text-davinci-003";
 
-const app = express()
-app.use(bodyParser.json())
-app.use(cors())
-const port = 3080
+// Middleware
+app.use(bodyParser.json());
+app.use(cors());
 
+// Routes
 app.post("/", async (req, res) => {
-    const { message, currentModel } = req.body;
-    console.log(message, "message")
-    console.log(currentModel, "currentModel")
-    const response = await openai.createCompletion({
-        model: `${currentModel}`,
-        prompt: `${message}`,
-        max_tokens: 100,
-        temperature: 0.5,
-    });
-    res.json({
-        message: response.data.choices[0].text,
-    })
-})
+    const { message, currentModel = defaultModel } = req.body;
+    try {
+        const response = await openai.createCompletion({
+            model: currentModel,
+            prompt: message,
+            max_tokens: 100,
+            temperature: 0.5,
+        });
+        res.json({ message: response.data.choices[0].text });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Something went wrong." });
+    }
+});
+
 app.get("/models", async (req, res) => {
-    const response = await openai.listEngines();
-    console.log(response.data.data)
-    res.json({
-        models: response.data.data
-    })
-})
+    try {
+        const response = await openai.listEngines();
+        res.json({ models: response.data.data });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Something went wrong: ${error.message}` });
+    }
+});
+
+// Start the server
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+    console.log(`Server started on port ${port}.`);
+});
