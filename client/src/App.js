@@ -1,16 +1,33 @@
 import './App.css';
 import "./normal.css";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function App() {
+  useEffect(() => {
+    getEngines();
+  }, [])
+
   const [input, setInput] = useState("");
+  const [models, setModels] = useState([]);
+  const [currentModel, setCurrentModel] = useState('ada');
   const [chatLog, setChatLog] = useState([{
     user: "gpt",
     message: "Hello, how may I help you?"
   }]);
+  const [isLoading, setIsLoading] = useState(false); // add loading state
+
   function clearChat() {
     setChatLog([]);
+  }
+  async function getEngines() {
+    try {
+      const response = await fetch('http://localhost:3080/models');
+      const data = await response.json();
+      setModels(data.models);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async function handleSubmit(e) {
@@ -26,17 +43,34 @@ function App() {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        message: messages
+        message: messages,
+        currentModel,
       })
     })
     const data = await response.json()
     setChatLog([...chatLogNew, { user: "gpt", message: `${data.message}` }])
   }
+
   return (
     <div className="App">
       <aside className='side-menu'>
         <div className='side-menu-button' onClick={clearChat}>
           <span>+</span> New Chat
+        </div>
+        <div className="models">
+          {isLoading ? (
+            <p>Loading models...</p>
+          ) : (
+            <select onChange={(e) => {
+              setCurrentModel(e.target.value);
+            }}>
+              {models.length > 0 && models.map((model, index) => (
+                <option key={model.id} value={model.id}>
+                  {model.id}
+                </option>
+              ))}
+            </select>
+          )}
         </div>
       </aside>
 
