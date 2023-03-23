@@ -28,13 +28,71 @@
   padding-left: 6px;
   padding-right: 12px; 
 }
-.message-log {
+
+.messages {
   flex:1;
   background-color: #343541;
+  position: relative;
 }
+
+
+.message-log{
+  text-align: left;
+}
+.message{
+  /* background-color: rgba(255, 255,255,0.1); */
+}
+.message.alfred{
+  background-color: #444654;
+}
+.message-center{
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding:12px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.message-avatar{
+  background: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.message-avatar.alfred{
+  background: #0da37f;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.message-text{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 .message-input-section {
-  background-color: white;
+ padding:24px;
+ position: absolute;
+ left:0;right:0;bottom:0;
 }
+.message-input-textarea {
+  background-color: #40414f;
+  color:white;
+  font-size: 1.25em;
+  width: 80%;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0,0,0,0.25);
+}
+
+
+
+
+
+
 .App-header {
   min-height: 100vh;
   display: flex;
