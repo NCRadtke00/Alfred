@@ -1,5 +1,6 @@
 import React from 'react';
 import "../App.css";
+
 function SideMenu({ models, setCurrentModel, clearChat }) {
     const [isLoading, setIsLoading] = React.useState(false);
 
