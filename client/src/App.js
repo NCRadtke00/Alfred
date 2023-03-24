@@ -1,8 +1,8 @@
 import './App.css';
 import "./normal.css";
 import { useState, useEffect } from 'react';
-import SideMenu from './SideMenu';
-import ChatBox from './ChatBox';
+import SideMenu from './components/SideMenu';
+import ChatBox from './components/ChatBox';
 
 function App() {
   const [input, setInput] = useState("");
