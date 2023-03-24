@@ -22,3 +22,6 @@ Turning OpenAI into a personal assistant project
 >> Otherwise you can check out the working project at the link above.
 
 # Images of project
+![image](https://user-images.githubusercontent.com/65512131/227400077-dc2d4ebb-f325-4cb3-8787-f35d043845a4.png)
+![image](https://user-images.githubusercontent.com/65512131/227400124-908c6dc0-a5b9-4fb2-800c-72e01f9bf40e.png)
+
