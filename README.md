@@ -1,9 +1,9 @@
 # Alfred
-Turning OpenAI into a personal assistant project
+Turning OpenAI into more of a personal assistant. this is the first of 3 planned versions for the project. The goal of this is to get the functionality of the models openAi has to offer, and ensuring they work properly. This version will be a "copy" or clone project of chatGPT in React before rebuilding it with Nextjs 13 and creating my own UI in tailwind. The 3rd and final version will be a react-native app to go along with the web app from nextjs.
 
 ## Al version 1 starts by Copying ChatGTP and intergrating all open-ai models.
 # Hosted
-- TBD
+- Alfred 2.0 will be hosted.
 
 # Technology
 - React
